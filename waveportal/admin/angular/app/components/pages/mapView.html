@@ -1,0 +1,22 @@
+    
+
+<div ng-app="altairApp" ng-controller="mapCtrl">
+    <div id="map"></div>
+    <div id="class" ng-repeat="marker in markers | orderBy : 'title'">
+        <a href="#" ng-click="openInfoWindow($event, marker)">{{marker.title}}</a>
+    </div>
+</div>
+
+<map name="map1" class="gmap gmap_large" zoom="8" center="1135 Karamea-Kohaihai Rd, Kahurangi National Park, Tasman" tilt="45">
+    <directions draggable="true"
+                panel="directions-panel"
+                origin="{{origin}}"
+                on-directions_changed="directionsChanged(evt)"
+                destination="{{destination}}">
+    </directions>
+    <street-view-panorama container="streetview"></street-view-panorama>
+    <marker ng-repeat="pos in markers" position="{{[pos.lat(), pos.lng()]}}"></marker>
+</map>
+
+
+
