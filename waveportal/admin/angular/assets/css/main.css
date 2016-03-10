@@ -9878,12 +9878,15 @@ a.waves-effect .waves-ripple {
 }
 #sidebar_main .menu_section > ul > li > a {
   font: 500 14px / 25px "Roboto", sans-serif;
-  color: #212121;
+  color: #ffffff;
   padding: 8px 20px;
   display: block;
   overflow: hidden;
   position: relative;
+  background-color:#434a54;
+  top:30px;
 }
+
 @media only screen and (max-width: 767px) {
   #sidebar_main .menu_section > ul > li > a {
     font-size: 16px;
@@ -13566,7 +13569,7 @@ body.pace-done > .page_preloader {
 }
 @media only screen and (min-width: 960px) {
   .wizard > .steps > ul > li + li a {
-    border-top: none;
+    border-top: none; cl
     border-right: 1px solid rgba(0, 0, 0, 0.15);
   }
 }
@@ -13685,7 +13688,40 @@ body.pace-done > .page_preloader {
 
   /* Support for IE. */
   font-feature-settings: 'liga';
+  color:#ccd1d9;
 }
+.material-icons.md-inactive {
+    color: rgba(255,255,255,0.3);
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 18px;
+  /* Preferred icon size */
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  -webkit-font-feature-settings: 'liga';
+  font-feature-settings: 'liga';
+  vertical-align: -4px;
+
+  color:#ccd1d9;
+}
+
+
+
 #IconNav{ 
 color: #CCD1D9;
 padding-left: 30px;
@@ -13715,4 +13751,20 @@ float: left;
     float: left; 
     margin-right: 100px;
      margin-top: 10px;
+}
+.header_content{
+    margin-bottom:40px;
+    margin-top:30PX;
+}
+.menu_title{
+    color:#ccd1d9;
+}
+#sidebar_main .menu_section > ul > li.current_section > a > .menu_icon .material-icons {
+    color: white;
+}
+#sidebar_main .menu_section > ul > li.current_section > a .menu_title {
+    color: white;
+}
+#RightIcons{
+
 }

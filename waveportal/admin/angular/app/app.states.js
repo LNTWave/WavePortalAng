@@ -1000,21 +1000,89 @@ altairApp
                         pageTitle: 'Blank Page'
                     }
                 })
-                .state("restricted.pages.chat", {
-                    url: "/chat",
-                    templateUrl: 'app/components/pages/chatView.html',
-                    controller: 'chatCtrl',
-                    resolve: {
-                        deps: ['$ocLazyLoad', function($ocLazyLoad) {
-                            return $ocLazyLoad.load([
-                                'app/components/pages/chatController.js'
-                            ]);
-                        }]
-                    },
-                    data: {
-                        pageTitle: 'Chat'
-                    }
-                })
+                
+           
+                 .state("restricted.pages.system", {
+                     url: "/system",
+                     templateUrl: 'app/components/pages/SystemView.html',
+                     resolve: {
+                         deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                             return $ocLazyLoad.load([
+                                 'bower_components/angular-resource/angular-resource.min.js',
+                                 'lazy_datatables',
+                                 'app/components/pages/SystemController.js'
+                             ]);
+                         }]
+                     },
+                     data: {
+                         pageTitle: 'system'
+                     }
+                 })
+                 .state("restricted.pages.notification", {
+                     url: "/Notification",
+                     templateUrl: 'app/components/pages/NotificationView.html',
+                     resolve: {
+                         deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                             return $ocLazyLoad.load([
+                                 'bower_components/angular-resource/angular-resource.min.js',
+                                 'lazy_datatables',
+                                 'app/components/pages/NotificationController.js'
+                             ]);
+                         }]
+                     },
+                     data: {
+                         pageTitle: 'Notification'
+                     }
+                 })
+                 .state("restricted.pages.policy", {
+                     url: "/policy",
+                     templateUrl: 'app/components/pages/PolicyView.html',
+                     resolve: {
+                         deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                             return $ocLazyLoad.load([
+                                 'bower_components/angular-resource/angular-resource.min.js',
+                                 'lazy_datatables',
+                                 'app/components/pages/PolicyController.js'
+                             ]);
+                         }]
+                     },
+                     data: {
+                         pageTitle:'policy'
+                     }
+                 })
+                 .state("restricted.pages.user", {
+                     url: "/user",
+                     templateUrl: 'app/components/pages/UserView.html',
+                     resolve: {
+                         deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                             return $ocLazyLoad.load([
+                                 'bower_components/angular-resource/angular-resource.min.js',
+                                 'lazy_datatables',
+                                 'app/components/pages/UserController.js'
+                             ]);
+                         }]
+                     },
+                     data: {
+                         pageTitle:'user'
+                     }
+                 })
+                 .state("restricted.pages.group", {
+                     url: "/group",
+                     templateUrl: 'app/components/pages/GroupView.html',
+                     resolve: {
+                         deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                             return $ocLazyLoad.load([
+                                 'bower_components/angular-resource/angular-resource.min.js',
+                                 'lazy_datatables',
+                                 'app/components/pages/GroupController.js'
+                             ]);
+                         }]
+                     },
+                     data: {
+                         pageTitle:'group'
+                     }
+                 })
+
                 .state("restricted.pages.contact_list", {
                     url: "/contact_list",
                     templateUrl: 'app/components/pages/contact_listView.html',
@@ -1089,18 +1157,25 @@ altairApp
                         }
                     }
                 })
-                .state("restricted.pages.invoices.list", {
-                    url: "/list",
-                    views: {
-                        'ivoice_content': {
-                            templateUrl: 'app/components/pages/invoices_blankView.html',
-                            controller: 'invoicesCtrl'
-                        }
-                    },
+
+                    .state("restricted.pages.site", {
+                    url: "/site",
+                    templateUrl: 'app/components/pages/SiteView.html',
+                    resolve: {
+                                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                                    return $ocLazyLoad.load([
+                                        'bower_components/angular-resource/angular-resource.min.js',
+                                        'lazy_datatables',
+                                        'app/components/pages/SiteController.js'
+                                    ]);
+                                }]
+                            },
                     data: {
-                        pageTitle: 'Invoices'
+                        pageTitle: 'site'
                     }
                 })
+         
+               
                 .state("restricted.pages.invoices.details", {
                     url: "/details/{invoiceId:[0-9]{1,4}}",
                     views: {
@@ -1125,25 +1200,7 @@ altairApp
                     url: "/google_maps",
                     templateUrl: 'app/components/plugins/google_mapsView.html',
                     controller: 'map_directionsCtrl',
-                    //resolve: {
-                    //    deps: ['$ocLazyLoad', function($ocLazyLoad) {
-                    //        return $ocLazyLoad.load('app/components/plugins/google_mapsController.js');
-                    //    }],
-                    //    //messages: function($http){
-                    //    //    return $http({ method: 'GET', url: 'data/mailbox_data.json' })
-                    //    //        .then(function (data) {
-                    //    //            return data.data;
-                    //    //        });
-                    //    //}
-                    //},
-                    //resolve: {
-                    //    deps: ['$ocLazyLoad', function ($ocLazyLoad) {
-                    //        return $ocLazyLoad.load([
-                    //            'lazy_google_maps',
-                    //            'app/components/pages/mapController.js'
-                    //        ]);
-                    //    }]
-                    //},
+           
                     resolve: {
                         deps: ['$ocLazyLoad', function($ocLazyLoad) {
                             return $ocLazyLoad.load([

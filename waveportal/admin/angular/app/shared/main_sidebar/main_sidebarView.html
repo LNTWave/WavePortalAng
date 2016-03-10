@@ -1,13 +1,14 @@
     <!-- main sidebar -->
-    <aside id="sidebar_main" sidebar-primary custom-scrollbar ng-class="{ 'accordion_mode': menuAccordionMode }" style="top:64px;">
+    <aside id="sidebar_main" sidebar-primary custom-scrollbar ng-class="{ 'accordion_mode': menuAccordionMode }" style="top:64px;background-color:#434a54">
 
         <!--<div class="sidebar_main_header">
             <div class="sidebar_logo">
                 <img src="assets/img/WaveLogo_v2.svg" id="Logoimg" />
             </div>
         </div>-->
-        <div class="menu_section" style="height:850px;background-color:#434a54;">
-            <ul class="nav navbar-nav side-nav" style="background-color:#434a54;height:850px">
+        <div class="menu_section">
+
+            <!--<ul class="nav navbar-nav side-nav" style="background-color:#434a54;height:850px">
                 <li id="navtabDashboard" style="height:38px;padding-top:30px;">
                     <a href="Index.html"><i class="material-icon" id="IconNav">assessment</i><span class="text">Dashboard</span></a>
                 </li>
@@ -32,8 +33,9 @@
                 <li id="navtabGroup" style="height:38px;padding-top:30px;">
                     <a href="#"><i class="material-icon" id="IconNav">group</i><span class="text">Groups</span></a>
                 </li>
-            </ul>
-            <!--<ul class="nav navbar-nav side-nav" style="background-color:#434a54;height:850px;">
+            </ul>-->
+
+            <ul>
                 <li ui-sref-active="current_section" ng-repeat="section in sections" ng-switch="section.link.length > 0" ng-class="{'submenu_trigger': (section.submenu.length > 0) && !miniSidebarActive, 'sidebar_submenu': (section.submenu.length > 0) && miniSidebarActive}" on-last-repeat>
                     <a ng-switch-when="true" ui-sref="{{section.link}}" ng-class="{'menu_tooltip' : miniSidebarActive}">
                         <span class="menu_icon"><i class="material-icons" ng-bind-html="section.icon"></i></span>
@@ -49,7 +51,7 @@
                         <li ng-repeat-end ng-class="{ act_item: $state.includes(item.link), 'submenu_trigger': (item.submenu.length > 0) && !miniSidebarActive, 'sidebar_submenu': (item.submenu.length > 0) && miniSidebarActive }" ng-include="'submenuTree'"></li>
                     </ul>
                 </li>
-            </ul>-->
+            </ul>
         </div>
     </aside>
     <script type="text/ng-template" id="submenuTree">
