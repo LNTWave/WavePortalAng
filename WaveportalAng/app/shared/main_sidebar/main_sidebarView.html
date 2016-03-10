@@ -1,0 +1,66 @@
+    <!-- main sidebar -->
+    <aside id="sidebar_main" sidebar-primary custom-scrollbar ng-class="{ 'accordion_mode': menuAccordionMode }" style="top:64px;background-color:#434a54">
+
+        <!--<div class="sidebar_main_header">
+            <div class="sidebar_logo">
+                <img src="assets/img/WaveLogo_v2.svg" id="Logoimg" />
+            </div>
+        </div>-->
+        <div class="menu_section">
+
+            <!--<ul class="nav navbar-nav side-nav" style="background-color:#434a54;height:850px">
+                <li id="navtabDashboard" style="height:38px;padding-top:30px;">
+                    <a href="Index.html"><i class="material-icon" id="IconNav">assessment</i><span class="text">Dashboard</span></a>
+                </li>
+                <li id="navtabMap" style="height:38px;padding-top:64px;">
+                    <a href="#"><i class="material-icon" id="IconNav">map</i><span class="text">Maps</span></a>
+                </li>
+                <li id="navtabSite" style="height:38px;padding-top:30px;">
+                    <a href="#"><i class="material-icon" id="IconNav">place</i><span class="text">Sites</span></a>
+                </li>
+                <li id="navtabsystem" style="height:38px;padding-top:25px;">
+                    <a href="#"><i class="material-icon" id="IconNav">group_work</i><span class="text">Systems</span></a>
+                </li>
+                <li id="navtabNotification" style="height:38px;padding-top:64px;">
+                    <a href="#"><i class="material-icon" id="IconNav">notifications</i><span class="text">Notifications</span></a>
+                </li>
+                <li id="navtabpolicy" style="height:38px;padding-top:30px;">
+                    <a href="#"><i class="material-icon" id="IconNav">cloud_done</i><span class="text">Policies</span></a>
+                </li>
+                <li id="navtabUser" style="height:38px;padding-top:64px;">
+                    <a href="#"><i class="material-icon" id="IconNav">person</i><span class="text">Users</span></a>
+                </li>
+                <li id="navtabGroup" style="height:38px;padding-top:30px;">
+                    <a href="#"><i class="material-icon" id="IconNav">group</i><span class="text">Groups</span></a>
+                </li>
+            </ul>-->
+
+            <ul>
+                <li ui-sref-active="current_section" ng-repeat="section in sections" ng-switch="section.link.length > 0" ng-class="{'submenu_trigger': (section.submenu.length > 0) && !miniSidebarActive, 'sidebar_submenu': (section.submenu.length > 0) && miniSidebarActive}" on-last-repeat>
+                    <a ng-switch-when="true" ui-sref="{{section.link}}" ng-class="{'menu_tooltip' : miniSidebarActive}">
+                        <span class="menu_icon"><i class="material-icons" ng-bind-html="section.icon"></i></span>
+                        <span class="menu_title">{{section.title}}</span>
+                    </a>
+                    <a ng-switch-when="false" href="#" ng-click="submenuToggle($event)">
+                        <span class="menu_icon"><i class="material-icons" ng-bind-html="section.icon"></i></span>
+                        <span class="menu_title">{{section.title}}</span>
+                    </a>
+                    <ul ng-if="section.submenu">
+                        <li ng-if="section.submenu_title" class="submenu-title">{{section.submenu_title}}</li>
+                        <li ng-repeat-start="item in section.submenu" ng-if="item.group" class="menu_subtitle">{{item.group}}</li>
+                        <li ng-repeat-end ng-class="{ act_item: $state.includes(item.link), 'submenu_trigger': (item.submenu.length > 0) && !miniSidebarActive, 'sidebar_submenu': (item.submenu.length > 0) && miniSidebarActive }" ng-include="'submenuTree'"></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </aside>
+    <script type="text/ng-template" id="submenuTree">
+        <a ng-if="item.link" ui-sref="{{item.link}}">{{item.title}}</a>
+        <a ng-if="!item.link" href="#" ng-click="submenuToggle($event)">{{item.title}}</a>
+        <ul ng-if="item.submenu">
+            <li ng-repeat="item in item.submenu" ng-include="'submenuTree'" ng-class="{ act_item: $state.includes(item.link), 'submenu_trigger': (item.submenu.length > 0) && !miniSidebarActive, 'sidebar_submenu': (item.submenu.length > 0) && miniSidebarActive }">
+                <a ng-if="item.link" ui-sref="{{item.link}}">{{item.title}}</a>
+                <a ng-if="!item.link" href="#" ng-click="submenuToggle($event)">{{item.title}}</a>
+            </li>
+        </ul>
+    </script>
